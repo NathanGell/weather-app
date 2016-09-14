@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Local Weather - Free Code Camp</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  </head>
+
+  <body>
+
+    <div id="pageContainer">
+
+      <div id="measurement">
+        <a id="fahrenfeit" class="waves-effect waves-light btn fade" onclick="changeMeasurement()">Fahrenheit</a>
+        <a id="celsius" class="waves-effect waves-light btn" onclick="changeMeasurement()">Celsius</a>
+      </div>
+
+      <div id="weatherContainer">
+
+        <div id="city">Melbourne, Australia</div>
+
+        <div id="temp">19&#176;C</div>
+
+        <div id="tempIcon">
+          <i class="fa fa-cloud" aria-hidden="true"></i>
+        </div>
+
+        <div id="locBtn">
+          <a class="waves-effect waves-light btn" onclick="geoFindMe()">Temp Me</a>
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+
+</html>
