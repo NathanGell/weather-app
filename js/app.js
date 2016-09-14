@@ -44,7 +44,8 @@ function geoFindMe() {
     // output.innerHTML = "<span>Latitude: " + latitude + "<br>Longitude: " + longitude + "</span>";
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://api.openweathermap.org/data/2.5/weather?lat=" + lat +"&lon=" + lon + "&appid=df7a23247118964c81de40f0d9ae3f52", true);
+    // add ap id key
+    xhr.open("GET", "http://api.openweathermap.org/data/2.5/weather?lat=" + lat +"&lon=" + lon + "&appid=", true);
     xhr.onload = function() {
       var jsonData = JSON.parse(xhr.response);
       city.innerHTML = jsonData.name;
