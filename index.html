@@ -8,6 +8,7 @@
   </head>
 
   <body>
+    <div id="bg"></div>
 
     <div id="pageContainer">
 
@@ -22,20 +23,18 @@
 
         <div id="temp">19&#176;C</div>
 
-        <div id="tempIcon">
-          <i class="fa fa-cloud" aria-hidden="true"></i>
-        </div>
-
         <div id="locBtn">
           <a class="waves-effect waves-light btn" onclick="geoFindMe()">Temp Me</a>
         </div>
 
-
+        <div>
+          Massive thanks to <a href="http://openweathermap.org/">OpenWeatherMap</a> for supplying a simple API soultion for displaying weather data.
+        </div>
       </div>
 
     </div>
 
-
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>

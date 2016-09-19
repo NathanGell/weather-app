@@ -8,3 +8,9 @@ body {
 .fade {
   background-color: gray !important;
 }
+
+#bg {
+  width: 100%;
+  position: fixed;
+  color: coral;
+}
