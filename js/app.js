@@ -24,23 +24,47 @@ function changeMeasurement() {
     // }
 
   }
+}
 
+function bgInit() {
+  var latLng = new google.maps.LatLng("-37.819851", "144.9736327");
 
+  var mapOptions = {
+    zoom: 15,
+    streetViewControl: false,
+    scaleControl: false,
+    mapTypeId: google.maps.MapTypeId.SATELLITE,
+    center: latLng
+  };
+
+  var map = new google.maps.Map(document.getElementById('mapsBG'), mapOptions);
 
 }
 
-// function updateBackground(lat, lon, temp) {
-//
-//   var latLng = new google.maps.LatLng(lat, lon);
-//
-//   var mapOptions = {
-//     zoom: 16,
-//     streetViewControl: false,
-//     scaleControl, false,
-//     mapTypeId: google.maps.MapTypeId.ROADMAP
-//   }
-//
-// }
+google.maps.event.addDomListener(window, 'load', bgInit);
+
+
+function updateBackground(lat, lon) {
+  console.log("Latitude: " + lat);
+  console.log("Longitude: " + lon);
+
+  var latLng = new google.maps.LatLng(lat, lon);
+  console.log("LatLng: " + latLng);
+
+  var mapOptions = {
+    zoom: 15,
+    streetViewControl: false,
+    scaleControl: false,
+    mapTypeId: google.maps.MapTypeId.SATELLITE,
+    center: latLng
+  };
+  console.log("Map Options: " + mapOptions);
+
+  var map = new google.maps.Map(document.getElementById('mapsBG'), mapOptions);
+  console.log("Map Obj: " + map);
+
+  console.log("Map function run");
+}
 
 
 function geoFindMe() {
@@ -48,7 +72,7 @@ function geoFindMe() {
   var temp = document.getElementById('temp');
 
   if (!navigator.geolocation) {
-    output.innerHTML = "<span>Geolocation is not suported by your browser</span>";
+    city.innerHTML = "<span>Geolocation is not suported by your browser</span>";
   }
 
   function success(position) {
@@ -59,18 +83,18 @@ function geoFindMe() {
 
     var xhr = new XMLHttpRequest();
     // add ap id key
-    xhr.open("GET", "http://api.openweathermap.org/data/2.5/weather?lat=" + lat +"&lon=" + lon + "&appid=60f313ed8c7e359e0d54e58439156474", true);
+    xhr.open("GET", "http://api.openweathermap.org/data/2.5/weather?lat=" + lat +"&lon=" + lon + "&appid=", true);
     xhr.onload = function() {
       var jsonData = JSON.parse(xhr.response);
       city.innerHTML = jsonData.name;
       if (measurement == "celsius") {
         temp.innerHTML = Math.floor(jsonData.main.temp - 273.15) + "&#176;C";
       } else {
-        temp.innerHTML = Math.floor(jsonData.main.temp * (9 / 5) - 459.67) + "&#176;C";
+        temp.innerHTML = Math.floor(jsonData.main.temp * (9 / 5) - 459.67) + "&#176;F";
       }
 
       // updateBackground(lat, lon, jsonData.main.temp);
-
+      updateBackground(lat, lon);
     }
     xhr.send();
 
@@ -79,7 +103,7 @@ function geoFindMe() {
   };
 
   function error() {
-    output.innerHTML = "Unable to locate";
+    city.innerHTML = "Unable to locate";
   }
 
   navigator.geolocation.getCurrentPosition(success, error);

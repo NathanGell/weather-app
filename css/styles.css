@@ -9,8 +9,55 @@ body {
   background-color: gray !important;
 }
 
-#bg {
+#mapsBG {
   width: 100%;
-  position: fixed;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
   color: coral;
+}
+
+#pageContainer {
+  z-index: 1;
+  position: relative;
+  width: 500px;
+  height: 100%;
+  margin: 60px auto 0;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  border-radius: 10px;
+}
+
+#measurement {
+  text-align: right;
+  padding: 10px;
+}
+
+#city {
+  font-size: 36px;
+  padding: 20px 0px 5px 0px;
+}
+
+#temp {
+  font-size: 150px;
+  text-align: center;
+  padding: 5px 0px 20px 0px;
+}
+
+#locBtn {
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+/*#tempBtn {
+  padding: 70px;
+  font-size: 36px;
+}*/
+
+#credit a {
+  text-decoration: underline;
+  color: rgb(38, 166, 154);
 }
