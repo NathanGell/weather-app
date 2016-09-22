@@ -26,14 +26,20 @@ body {
   height: 100%;
   margin: 60px auto 0;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(96, 125, 139, 0.9);
   color: white;
   border-radius: 10px;
 }
 
 #measurement {
   text-align: right;
-  padding: 10px;
+  padding: 5px;
+}
+
+#measurement a {
+  margin: 5px 5px;
+  width: 50px;
+  padding: 0px;
 }
 
 #city {
@@ -52,12 +58,56 @@ body {
   padding-bottom: 40px;
 }
 
-/*#tempBtn {
-  padding: 70px;
-  font-size: 36px;
-}*/
-
 #credit a {
   text-decoration: underline;
   color: rgb(38, 166, 154);
+}
+
+/* COLOURS */
+.red {
+  background-color: #F44336;
+}
+
+.pink {
+  background-color: #E91E63;
+}
+
+.purple {
+  background-color: #9C27B0;
+}
+
+.indigo {
+  background-color: #3F51B5;
+}
+
+.blue {
+  background-color: #2196F3;
+}
+
+.light-blue {
+  background-color: #03A9F4;
+}
+
+.cyan {
+  background-color: #00BCD4;
+}
+
+.teal {
+  background-color: #009688;
+}
+
+.green {
+  background-color: #4CAF50;
+}
+
+.amber {
+  background-color: #FFC107;
+}
+
+.orange {
+  background-color: #FF9800;
+}
+
+.deep-orange {
+  background-color: #FF5722;
 }

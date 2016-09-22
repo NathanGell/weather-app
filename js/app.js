@@ -5,26 +5,35 @@
 
 
 var measurement = "celsius";
+var kelvinTemp = 0;
+
+
 
 // Change the temperature measurement.
 function changeMeasurement() {
   var id = event.target.id;
-
+  console.log("kelvinTemp: " + kelvinTemp);
   if (id != measurement) {
     document.getElementById(measurement).classList.add('fade');
     document.getElementById(id).classList.remove('fade');
     measurement = id;
     console.log(measurement);
 
-  //!!!!! Need to update the value of temp when measurmennt change button is clicked !!!!!
-    // if (id == "celsius") {
-    //
-    // } else {
-    //   temp.innerHTML =
-    // }
-
+    if (kelvinTemp != 0) {
+      switch(measurement) {
+        case "celsius":
+          temp.innerHTML = Math.floor(kelvinTemp - 273.15) + "&#176;C";
+          break;
+        case "fahrenheit":
+          temp.innerHTML = Math.floor(kelvinTemp * (9 / 5) - 459.67) + "&#176;F";
+          break;
+        default:
+          temp.innerHTML = kelvinTemp + "K";
+      }
+    }
   }
 }
+
 
 function bgInit() {
   var latLng = new google.maps.LatLng("-37.819851", "144.9736327");
@@ -33,7 +42,7 @@ function bgInit() {
     zoom: 15,
     streetViewControl: false,
     scaleControl: false,
-    mapTypeId: google.maps.MapTypeId.SATELLITE,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
     center: latLng
   };
 
@@ -45,23 +54,18 @@ google.maps.event.addDomListener(window, 'load', bgInit);
 
 
 function updateBackground(lat, lon) {
-  console.log("Latitude: " + lat);
-  console.log("Longitude: " + lon);
 
   var latLng = new google.maps.LatLng(lat, lon);
-  console.log("LatLng: " + latLng);
 
   var mapOptions = {
     zoom: 15,
     streetViewControl: false,
     scaleControl: false,
-    mapTypeId: google.maps.MapTypeId.SATELLITE,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
     center: latLng
   };
-  console.log("Map Options: " + mapOptions);
 
   var map = new google.maps.Map(document.getElementById('mapsBG'), mapOptions);
-  console.log("Map Obj: " + map);
 
   console.log("Map function run");
 }
@@ -83,9 +87,10 @@ function geoFindMe() {
 
     var xhr = new XMLHttpRequest();
     // add ap id key
-    xhr.open("GET", "http://api.openweathermap.org/data/2.5/weather?lat=" + lat +"&lon=" + lon + "&appid=", true);
+    xhr.open("GET", "http://api.openweathermap.org/data/2.5/weather?lat=" + lat +"&lon=" + lon + "&appid=LOL", true);
     xhr.onload = function() {
       var jsonData = JSON.parse(xhr.response);
+      kelvinTemp = jsonData.main.temp;
       city.innerHTML = jsonData.name;
       if (measurement == "celsius") {
         temp.innerHTML = Math.floor(jsonData.main.temp - 273.15) + "&#176;C";
@@ -109,3 +114,5 @@ function geoFindMe() {
   navigator.geolocation.getCurrentPosition(success, error);
 
 }
+
+document.onLoad(geoFindMe());

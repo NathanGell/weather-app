@@ -10,32 +10,33 @@
   <body>
     <div id="mapsBG"></div>
 
+    <div id="measurement">
+      <a id="celsius" class="waves-effect waves-light btn" onclick="changeMeasurement()">&#176;C</a><br>
+      <a id="fahrenheit" class="waves-effect waves-light btn fade" onclick="changeMeasurement()">&#176;F</a>
+    </div>
+
     <div id="pageContainer">
 
-      <div id="measurement">
-        <a id="fahrenfeit" class="waves-effect waves-light btn fade" onclick="changeMeasurement()">Fahrenheit</a>
-        <a id="celsius" class="waves-effect waves-light btn" onclick="changeMeasurement()">Celsius</a>
-      </div>
+
 
       <div id="weatherContainer">
 
-        <div id="city"></div>
+        <div id="city">Melbourne</div>
 
-        <div id="temp"></div>
+        <div id="temp">19&#176;C</div>
 
         <div id="locBtn">
           <a id="tempBtn" class="waves-effect waves-light btn" onclick="geoFindMe()">Forecast</a>
         </div>
 
         <div id="credit">
-          Massive thanks to <a href="http://openweathermap.org/">OpenWeatherMap</a> for supplying a simple API soultion for displaying weather data.
+          A massive thanks to <a href="http://openweathermap.org/">OpenWeatherMap</a> for supplying a simple API soultion for displaying weather data.
         </div>
       </div>
 
     </div>
 
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=LOL">
     </script>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
