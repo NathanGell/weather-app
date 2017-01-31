@@ -74,6 +74,7 @@ function updateBackground(lat, lon) {
 function geoFindMe() {
   var city = document.getElementById('city');
   var temp = document.getElementById('temp');
+  var icon = document.getElementById('icon');
 
   if (!navigator.geolocation) {
     city.innerHTML = "<span>Geolocation is not suported by your browser</span>";
@@ -87,9 +88,10 @@ function geoFindMe() {
 
     var xhr = new XMLHttpRequest();
     // add ap id key
-    xhr.open("GET", "http://api.openweathermap.org/data/2.5/weather?lat=" + lat +"&lon=" + lon + "&appid=LOL", true);
+    xhr.open("GET", "http://api.openweathermap.org/data/2.5/weather?lat=" + lat +"&lon=" + lon + "&appid=60f313ed8c7e359e0d54e58439156474", true);
     xhr.onload = function() {
       var jsonData = JSON.parse(xhr.response);
+      icon.src = "http://www.openweathermap.org/img/w/" + jsonData.weather[0].icon + ".png"
       kelvinTemp = jsonData.main.temp;
       city.innerHTML = jsonData.name;
       if (measurement == "celsius") {
@@ -115,4 +117,4 @@ function geoFindMe() {
 
 }
 
-document.onLoad(geoFindMe());
+document.onLoad = geoFindMe();

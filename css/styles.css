@@ -42,9 +42,23 @@ body {
   padding: 0px;
 }
 
+#weatherHeader {
+  width: 480px;
+  height: 85px;
+  padding: 15px;
+}
+
 #city {
   font-size: 36px;
-  padding: 20px 0px 5px 0px;
+  width: 360px;
+  float: left;
+}
+
+#icon {
+  width: 58px;
+  height: 58px;
+  margin-left: 20px;
+  float: left;
 }
 
 #temp {
@@ -61,53 +75,4 @@ body {
 #credit a {
   text-decoration: underline;
   color: rgb(38, 166, 154);
-}
-
-/* COLOURS */
-.red {
-  background-color: #F44336;
-}
-
-.pink {
-  background-color: #E91E63;
-}
-
-.purple {
-  background-color: #9C27B0;
-}
-
-.indigo {
-  background-color: #3F51B5;
-}
-
-.blue {
-  background-color: #2196F3;
-}
-
-.light-blue {
-  background-color: #03A9F4;
-}
-
-.cyan {
-  background-color: #00BCD4;
-}
-
-.teal {
-  background-color: #009688;
-}
-
-.green {
-  background-color: #4CAF50;
-}
-
-.amber {
-  background-color: #FFC107;
-}
-
-.orange {
-  background-color: #FF9800;
-}
-
-.deep-orange {
-  background-color: #FF5722;
 }
