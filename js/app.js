@@ -44,8 +44,6 @@ function bgInit() {
 
 }
 
-google.maps.event.addDomListener(window, 'load', bgInit);
-
 
 function updateBackground(lat, lon) {
 
@@ -72,13 +70,17 @@ function success(position) {
       icon = document.getElementById('icon');
 
   var xhr = new XMLHttpRequest();
+
   // add ap id key
   xhr.open("GET", "https://crossorigin.me/https://api.darksky.net/forecast/2d34a028a93bb37ae50efbde27a51372/" + lat +"," + lon, true);
+
   xhr.onload = function() {
+
     var jsonData = JSON.parse(xhr.response);
-    // icon.src = "http://www.openweathermap.org/img/w/" + jsonData.weather[0].icon + ".png"
     tempF = jsonData.currently.temperature;
+
     city.innerHTML = jsonData.name;
+
     if (measurement == "celsius") {
       temp.innerHTML = Math.floor(((tempF - 32) * 5) / 9) + "&#176;C";
     } else {
@@ -88,7 +90,9 @@ function success(position) {
 
     // updateBackground(lat, lon, jsonData.main.temp);
     updateBackground(lat, lon);
+
   }
+
   xhr.send();
 
 };
@@ -98,12 +102,17 @@ function error() {
 }
 
 
-function geoFindMe() {
 
-  if ('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition(success, error);
-  } else {
-    city.innerHTML = "<span>Geolocation is not suported by your browser</span>";
-  }
+google.maps.event.addDomListener(window, 'load', bgInit);
 
-}
+
+document.addEventListener('DOMContentLoaded', function() {
+   // your code here
+
+   if ('geolocation' in navigator) {
+     navigator.geolocation.getCurrentPosition(success, error);
+   } else {
+     city.innerHTML = "<span>Geolocation is not suported by your browser</span>";
+   }
+
+}, false);

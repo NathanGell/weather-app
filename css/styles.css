@@ -5,9 +5,7 @@ body {
 
 }
 
-.fade {
-  background-color: gray !important;
-}
+
 
 #mapsBG {
   width: 100%;
@@ -20,24 +18,34 @@ body {
 }
 
 #pageContainer {
+  pointer-events: none;
   z-index: 1;
   position: relative;
-  width: 500px;
-  height: 100%;
-  margin: 60px auto 0;
-  padding: 10px;
-  background: rgba(96, 125, 139, 0.9);
+  top: 20vh;
+  width: 100vw;
+  height: 60vh;
+  background: rgba(0, 0, 0, 0.5);
   color: white;
-  border-radius: 10px;
 }
 
 #measurement {
-  text-align: right;
-  padding: 5px;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 20vh;
+  background: rgba(3, 142, 255, 1);
+}
+
+#appTitle {
+  font-size: 10vh 80vw;
+  width: auto;
+  color: white;
+  border: 1px solid black;
 }
 
 #measurement a {
-  margin: 5px 5px;
+  margin: 20px 10px;
   width: 50px;
   padding: 0px;
 }
@@ -55,10 +63,9 @@ body {
 }
 
 #icon {
-  width: 58px;
-  height: 58px;
   margin-left: 20px;
   float: left;
+  border: 1px solid black;
 }
 
 #temp {
@@ -72,7 +79,27 @@ body {
   padding-bottom: 40px;
 }
 
+#credit {
+  z-index: 1;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 20vh;
+  background: rgba(3, 142, 255, 1);
+}
+
 #credit a {
   text-decoration: underline;
   color: rgb(38, 166, 154);
+}
+
+.btn {
+  background-color: #ffbc03 !important;
+  color: blue !important;
+}
+
+.fade {
+  background-color: gray !important;
+
+  color: white !important;
 }

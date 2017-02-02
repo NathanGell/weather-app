@@ -11,37 +11,36 @@
     <div id="mapsBG"></div>
 
     <div id="measurement">
-      <a id="celsius" class="waves-effect waves-light btn" onclick="changeMeasurement()">&#176;C</a><br>
-      <a id="fahrenheit" class="waves-effect waves-light btn fade" onclick="changeMeasurement()">&#176;F</a>
+      <div id="appTitle">Weather App - FCC</div>
+
     </div>
 
     <div id="pageContainer">
 
-
-
       <div id="weatherContainer">
         <div id="weatherHeader">
-          <div id="city">Melbourne</div>
-          <img id="icon" src="http://www.openweathermap.org/img/w/10d.png"/>
+          <div id="city">Find your location</div>
+          <canvas id="icon" width="128" height="128"></canvas>
         </div>
 
         <div id="temp">19&#176;C</div>
 
-        <div id="locBtn">
-          <a id="tempBtn" class="waves-effect waves-light btn" onclick="geoFindMe()">Forecast</a>
-        </div>
-
-        <div id="credit">
-          A massive thanks to <a href="https://darksky.net/">Dark Sky API</a> for supplying a simple API soultion for displaying weather data.
-        </div>
       </div>
 
+    </div>
+
+    <div id="credit">
+      <a id="celsius" class="waves-effect waves-light btn" onclick="changeMeasurement()">&#176;C</a>
+      <a id="fahrenheit" class="waves-effect waves-light btn fade" onclick="changeMeasurement()">&#176;F</a>
+      
+      A massive thanks to <a href="https://darksky.net/">Dark Sky API</a> for supplying a simple API soultion for displaying weather data.
     </div>
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu0L82Mis17PFAjFQRGoEaX5Hi4xuPLYE">
     </script>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </body>
 
